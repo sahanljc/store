@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- Add `newsletter` as allowed store block.
+
 ## [2.9.3] - 2019-03-26
 ### Fixed
 - Fix maximum call stack size exceeded error in helmet.
