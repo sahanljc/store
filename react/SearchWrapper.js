@@ -76,21 +76,13 @@ class SearchWrapper extends Component {
       params,
       searchQuery: {
         data: search,
-        data: {
-          titleTag,
-          metaTagDescription,
-        } = {},
+        data: { titleTag, metaTagDescription } = {},
         loading,
       },
-      runtime: {
-        getSettings,
-      },
+      runtime: { getSettings },
     } = this.props
     const settings = getSettings(APP_LOCATOR) || {}
-    const {
-      titleTag: storeTitle,
-      metaTagKeywords,
-    } = settings
+    const { titleTag: storeTitle, metaTagKeywords } = settings
 
     return (
       <DataLayerApolloWrapper
@@ -98,11 +90,19 @@ class SearchWrapper extends Component {
         loading={loading}
       >
         <Helmet>
-          {titleTag
-            ? <title>{titleTag}</title>
-            : params.term && <title>{`${capitalize(params.term)} - ${storeTitle}`}</title>}
-          {params.term &&
-            <meta name="keywords" content={`${params.term}, ${metaTagKeywords}`} />}
+          {titleTag ? (
+            <title>{titleTag}</title>
+          ) : (
+            params.term && (
+              <title>{`${capitalize(params.term)} - ${storeTitle}`}</title>
+            )
+          )}
+          {params.term && (
+            <meta
+              name="keywords"
+              content={`${params.term}, ${metaTagKeywords}`}
+            />
+          )}
           {metaTagDescription && (
             <meta name="description" content={metaTagDescription} />
           )}
